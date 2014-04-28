@@ -1,25 +1,34 @@
 package org.sfeirapp.app;
 
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.sfeirapp.model.BouchonMonuments;
+import org.sfeirapp.model.MonumentsVille;
 
-public class MainActivity extends ActionBarActivity {
+
+public class ListeMonumentsActivity extends ListActivity {
+
+    private MonumentsVille monumentsVille;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_liste_monuments);
 
+        monumentsVille = BouchonMonuments.getMonuments();
+
+        setListAdapter(new ListeMonumentsAdapter(this, monumentsVille));
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.liste_monuments, menu);
         return true;
     }
 

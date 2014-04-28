@@ -4,5 +4,10 @@
     <string name="app_name">SFEIR_APP</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_liste_monuments">Liste Monuments </string>
+    <string name="monument">Monument</string>
+    <string name="descMonument">Description monument</string>
+    <string name="coordMonument">Coordonnées Monument</string>
+    <string name="lieuMonument">lieu</string>
 
 </resources>
