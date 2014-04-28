@@ -4,10 +4,20 @@
     <string name="app_name">SFEIR_APP</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_liste_monuments">Liste Monuments </string>
+    <string name="title_activity_liste_monuments">Liste Monuments</string>
     <string name="monument">Monument</string>
     <string name="descMonument">Description monument</string>
     <string name="coordMonument">Coordonnées Monument</string>
     <string name="lieuMonument">lieu</string>
+    <string name="title_activity_ajouter_monument">Ajouter Monument</string>
+    <string name="addMonument">Ajouter monument</string>
+    <string name="formTitre">Titre Monument</string>
+    <string name="formLieu">Lieu monument</string>
+    <string name="formDesc">Description</string>
+    <string name="enregitrerMonument">Enregistrer Monument</string>
+    <string name="lieuMonumentEditHint">Entrer l\'emplacement du monument</string>
+    <string name="titreMonumentEditHint">Entrer le nom du monument</string>
+    <string name="descMonumentEditHint">Entrer la description du monument</string>
+    <string name="title_activity_details_monument">Details Monument</string>
 
 </resources>
