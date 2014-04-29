@@ -69,6 +69,9 @@ public class ListeMonumentsActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
+        Intent intent =  new Intent();
+        intent.setClass(this, DetailsMonumentActivity.class);
+        startActivity(intent);
 
     }
 

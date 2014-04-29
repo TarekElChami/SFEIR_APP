@@ -1,9 +1,13 @@
 package org.sfeirapp.app;
 
+import android.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
 
 
 public class DetailsMonumentActivity extends ActionBarActivity {
@@ -12,6 +16,7 @@ public class DetailsMonumentActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_monument);
+
     }
 
 
