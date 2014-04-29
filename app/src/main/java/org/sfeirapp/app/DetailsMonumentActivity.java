@@ -1,13 +1,25 @@
 package org.sfeirapp.app;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
+import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+
+import org.sfeirapp.backend.myApi.MyApi;
+
+import java.io.IOException;
 
 
 public class DetailsMonumentActivity extends ActionBarActivity {
@@ -16,6 +28,7 @@ public class DetailsMonumentActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_monument);
+
 
     }
 
@@ -37,5 +50,42 @@ public class DetailsMonumentActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public class EndPointAsynchTask extends AsyncTask<Void,Void,String>{
+
+        MyApi endPointApi;
+        Context context;
+
+        public EndPointAsynchTask(){
+            context = getBaseContext();
+            MyApi.Builder builder =
+                    new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
+                            new AndroidJsonFactory(), null)
+                            .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                        @Override
+                        public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
+                            request.setDisableGZipContent(true);
+                        }
+                    });
+
+            endPointApi = builder.build();
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                return endPointApi.sayHi("tarek").execute().getData();
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String aVoid) {
+            Toast.makeText(context,aVoid,Toast.LENGTH_LONG).show();
+        }
     }
 }
